@@ -20,7 +20,9 @@ defmodule CodeCoordinatorWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CodeCoordinatorWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CodeCoordinatorWeb do
+    pipe_through :api
+
+    post "/webhooks", WebhookController, :handle
+  end
 end
